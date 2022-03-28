@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipient index{% endblock %}
+
+{% block body %}
+
+    <h1>Recipient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recipient in recipients %}
+            <tr>
+                <td>{{ recipient.id }}</td>
+                <td>{{ recipient.name }}</td>
+                <td>{{ recipient.email }}</td>
+                <td>{{ recipient.age }}</td>
+                <td>{{ recipient.city }}</td>
+                <td>
+                    <a href="{{ path('app_recipient_show', {'id': recipient.id}) }}">show</a>
+                    <a href="{{ path('app_recipient_edit', {'id': recipient.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_recipient_new') }}">Create new</a>
+{% endblock %}

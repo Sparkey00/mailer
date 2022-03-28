@@ -60,10 +60,4 @@ class FillRecipientsCommand extends Command
 
         return Command::SUCCESS;
     }
-
-
-    private function fill()
-    {
-
-    }
 }
